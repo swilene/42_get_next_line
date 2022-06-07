@@ -6,7 +6,7 @@
 /*   By: saguesse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 15:51:21 by saguesse          #+#    #+#             */
-/*   Updated: 2022/06/06 15:23:04 by saguesse         ###   ########.fr       */
+/*   Updated: 2022/06/07 15:56:52 by saguesse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 char	*get_next_line(int fd);
-void	ft_putstr(char *str);
 
 # endif
