@@ -5,19 +5,9 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: saguesse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 15:55:23 by saguesse          #+#    #+#             */
-/*   Updated: 2022/06/06 12:14:29 by saguesse         ###   ########.fr       */
+/*   Created: 2022/06/07 15:57:15 by saguesse          #+#    #+#             */
+/*   Updated: 2022/06/07 15:57:30 by saguesse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-}
