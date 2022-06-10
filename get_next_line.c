@@ -6,7 +6,11 @@
 /*   By: saguesse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 15:50:49 by saguesse          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/06/09 09:41:39 by saguesse         ###   ########.fr       */
+=======
+/*   Updated: 2022/06/07 17:45:32 by saguesse         ###   ########.fr       */
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +43,15 @@ char	*write_stash(char *stash)
 	if (!str)
 		return (NULL);
 	while (stash[i])
+<<<<<<< HEAD
 		str[j++] = stash[i++];
+=======
+	{
+		str[j] = stash[i];
+		j++;
+		i++;
+	}
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 	str[j] = '\0';
 	return (str);
 }
@@ -62,11 +74,14 @@ char	*write_line(char *stash)
 		line[j] = stash[j];
 		j++;
 	}
+<<<<<<< HEAD
 	if (stash[j] == '\0')
 	{
 		line[j] = '\0';
 		return (line);
 	}
+=======
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 	line[j] = '\n';
 	line[j++] = '\0';
 	return (line);
@@ -113,23 +128,38 @@ char	*ft_strchr(const char *s)
 
 char	*get_next_line(int fd)
 {
+<<<<<<< HEAD
 	size_t	ret;
+=======
+	static size_t	ret;
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 	char			buf[BUFFER_SIZE + 1];
 	char			*stash;
 	char			*line;
 
+<<<<<<< HEAD
 	printf("stash = %s\n", stash);
 	while (ft_strchr(stash) == NULL)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret == 0)
+=======
+	while (ft_strchr(stash) == NULL)
+	{
+		ret = read(fd, buf, BUFFER_SIZE);
+		if (ret == -1)
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 			return (NULL);
 		buf[ret] = '\0';
 		stash = ft_strjoin(stash, buf);
 	}
 	line = write_line(stash);
 	stash = write_stash(stash);
+<<<<<<< HEAD
 	//printf("stash = %s\t", stash);
+=======
+	printf("stash = %s\t", stash);
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 	return (line);
 }
 
@@ -145,7 +175,11 @@ int	main()
 	}
 	printf("line = %s", get_next_line(fd));
 	printf("line = %s", get_next_line(fd));
+<<<<<<< HEAD
 	//printf("line = %s", get_next_line(fd));
+=======
+	printf("line = %s", get_next_line(fd));
+>>>>>>> d2137ab9528e0b53fa4b96cb97789bac14724c3f
 	//printf("line = %s", get_next_line(fd));
 	if (close(fd) == -1)
 	{
