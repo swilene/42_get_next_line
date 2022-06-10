@@ -6,7 +6,7 @@
 /*   By: saguesse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 15:50:49 by saguesse          #+#    #+#             */
-/*   Updated: 2022/06/07 17:45:32 by saguesse         ###   ########.fr       */
+/*   Updated: 2022/06/09 09:41:39 by saguesse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,7 @@ char	*write_stash(char *stash)
 	if (!str)
 		return (NULL);
 	while (stash[i])
-	{
-		str[j] = stash[i];
-		j++;
-		i++;
-	}
+		str[j++] = stash[i++];
 	str[j] = '\0';
 	return (str);
 }
@@ -65,6 +61,11 @@ char	*write_line(char *stash)
 	{
 		line[j] = stash[j];
 		j++;
+	}
+	if (stash[j] == '\0')
+	{
+		line[j] = '\0';
+		return (line);
 	}
 	line[j] = '\n';
 	line[j++] = '\0';
@@ -112,22 +113,23 @@ char	*ft_strchr(const char *s)
 
 char	*get_next_line(int fd)
 {
-	static size_t	ret;
+	size_t	ret;
 	char			buf[BUFFER_SIZE + 1];
 	char			*stash;
 	char			*line;
 
+	printf("stash = %s\n", stash);
 	while (ft_strchr(stash) == NULL)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
-		if (ret == -1)
+		if (ret == 0)
 			return (NULL);
 		buf[ret] = '\0';
 		stash = ft_strjoin(stash, buf);
 	}
 	line = write_line(stash);
 	stash = write_stash(stash);
-	printf("stash = %s\t", stash);
+	//printf("stash = %s\t", stash);
 	return (line);
 }
 
@@ -143,7 +145,7 @@ int	main()
 	}
 	printf("line = %s", get_next_line(fd));
 	printf("line = %s", get_next_line(fd));
-	printf("line = %s", get_next_line(fd));
+	//printf("line = %s", get_next_line(fd));
 	//printf("line = %s", get_next_line(fd));
 	if (close(fd) == -1)
 	{
