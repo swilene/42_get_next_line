@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saguesse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:52:23 by saguesse          #+#    #+#             */
-/*   Updated: 2022/06/16 10:28:58 by saguesse         ###   ########.fr       */
+/*   Updated: 2022/06/17 17:23:11 by saguesse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(const char *s)
 {
@@ -79,12 +79,14 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/*int	main()
+int	main()
 {
 	int		fd;
-	char	*line;
+	char	**line;
 
-	fd = open("test", O_RDONLY);
+	fd[3] = open("test", O_RDONLY);
+	fd[4] = open("test2", O_RDONLY);
+	fd[5] = open("test3", O_RDONLY);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -99,4 +101,4 @@ char	*get_next_line(int fd)
 		return (1);
 	}
 	return (0);
-}*/
+}
